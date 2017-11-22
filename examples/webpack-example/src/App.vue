@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <label>{{selectedEvent}}</label>
     <vue-instant :suggestion-attribute="suggestionAttribute" v-model="value" :disabled="false"  @input="changed" @click-input="clickInput" @click-button="clickButton" @selected="selected"  @enter="enter" @key-up="keyUp" @key-down="keyDown" @key-right="keyRight" @clear="clear"  @escape="escape" :show-autocomplete="true" :autofocus="false" :suggestions="suggestions" name="customName" placeholder="custom placeholder" type="google"></vue-instant>
   </div>
 </template>
