@@ -11,11 +11,13 @@
     <div class="results">
       <div v-if="modeIsFull" class='el-input-group__append list-block'>
           <div class="vue-instant__suggestions container">
-              <div @click="selectedAction(index)" v-for="(item, index) in suggestions"  class="infoblock col-sm-3" :class="getClassHighlighted(index)">
-                <h4>{{item[suggestionAttribute]}}</h4>
-                <div class="post-date hovercolor"><a :href="'/'+item[suggestionUsername]">{{item[suggestionUsername]}}</a>/<a :href="'/'+item[suggestionUsername]+'/'+item[suggestionAttribute]">{{item[suggestionAttribute]}}</a></div>
+            <a :href="'/'+item[suggestionUsername]+'/'+item[suggestionAttribute]" @click="selectedAction(index)" v-for="(item, index) in suggestions" class="search-link" :class="getClassHighlighted(index)">
+              <div class="infoblock col-sm-3">
+                <h4>{{item[suggestionName]}}</h4>
+                <div class="post-date hovercolor">{{item[suggestionUsername]}}/{{item[suggestionAttribute]}}</div>
                 <p class="blurb">{{item[suggestionDescription]}}</p>
               </div>
+            </a>
           </div>
       </div>
     </div>
@@ -34,6 +36,10 @@
         required: true
       },
       'suggestionAttribute': {
+        type: String,
+        required: true
+      },
+      'suggestionName': {
         type: String,
         required: true
       },
